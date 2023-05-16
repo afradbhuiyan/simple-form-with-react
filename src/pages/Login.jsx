@@ -12,7 +12,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, remember);
+    console.log({ email, password, remember });
   };
 
   return (
@@ -26,7 +26,7 @@ export default function Login() {
         <p className="text-sm text-center text-gray-500 flex justify-center items-center gap-x-1">
           <span>Don't have an account?</span>
           <Link
-            to="register"
+            to="/register"
             className="text-primary-500 hover:text-primary-700 hover:underline">
             Register
           </Link>
@@ -38,7 +38,7 @@ export default function Login() {
         <div>
           <Label htmlFor="email" text="Email Address" required />
           <Input
-            name="email"
+            id="email"
             autoComplete="off"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -48,8 +48,8 @@ export default function Login() {
         <div>
           <Label htmlFor="password" text="Password" required />
           <Input
+            id="password"
             type="password"
-            name="password"
             autoComplete="off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -60,7 +60,6 @@ export default function Login() {
           <div className="flex items-center gap-x-2">
             <Checkbox
               id="remember"
-              name="remember"
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
             />
